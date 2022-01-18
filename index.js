@@ -4,7 +4,7 @@ const fs = require('fs');
 const app = express()
 
 const PORT = 3000
-const FILE_PATH = "c:/temp"
+const FILE_PATH = "/Users/stephane/Documents/PointCloudSnapshots"
 
 app.use (function(req, res, next) {
   var data='';
