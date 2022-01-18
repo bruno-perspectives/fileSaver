@@ -25,7 +25,10 @@ app.get('/', (req, res) => {
 app.post('/', (req, res) => {
   
   if(!fs.existsSync(FILE_PATH)) fs.mkdirSync(FILE_PATH)
-  fs.writeFileSync(`${FILE_PATH}/${Date.now().valueOf()}.xyz`, req.body)
+  const data = JSON.parse(req.body)
+  const ts = Date.now().valueOf()
+  fs.writeFileSync(`${FILE_PATH}/${ts}.xyz`, data.vertices)
+  fs.writeFileSync(`${FILE_PATH}/${ts}.pose`, data.pose)
   res.send('ok')
 })
 
